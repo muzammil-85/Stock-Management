@@ -47,8 +47,10 @@ run project
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`SECRET_KEY = ''`
-
-`TRUSTED_SITE = []`
-
+`SECRET_KEY`
+`TRUSTED_SITE `
+`ALLOWED_HOSTS `
+`CORS_ALLOWED_ORIGINS `
+`CSRF_TRUSTED_ORIGINS `
+`DEBUG`
 
