@@ -2,7 +2,6 @@ import uuid
 from django.db import models
 from versatileimagefield.fields import VersatileImageField
 from django.utils.translation import gettext_lazy as _
-
 class Product(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     ProductID = models.BigIntegerField(unique=True)
@@ -35,9 +34,8 @@ class Variant(models.Model):
 
 class SubVariant(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    variant = models.ForeignKey(Variant, related_name="subvariants", on_delete=models.CASCADE)
+    variant = models.ForeignKey(Variant, related_name="subvariants", on_delete=models.CASCADE,null=True,blank=True)
     name = models.CharField(max_length=255)
-    stock = models.DecimalField(default=0.00, max_digits=20, decimal_places=8)
 
     class Meta:
         unique_together = (("variant", "name"),)
