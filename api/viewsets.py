@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all().select_related('CreatedUser').prefetch_related('variants__subvariants')
     serializer_class = ProductSerializer
-    permission_classes = [IsAuthenticated]  # to ensure the user is authenticated
+    # permission_classes = [IsAuthenticated]  # to ensure the user is authenticated
 
     @action(detail=True, methods=['post'])
     def add_stock(self, request, pk=None):
